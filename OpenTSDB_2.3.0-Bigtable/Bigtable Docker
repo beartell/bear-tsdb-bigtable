@@ -1,0 +1,52 @@
+Yüklenecekler 
+# ------ Yum İle kurulacaklar ------
+	- autoconf 
+	- automake 
+	- java-1.8.0-openjdk-devel.x86_64 
+	- java-1.8.0-openjdk.x86_64 
+	- util-linux-ng.x86_64 
+	- gcc 
+	- zlib-devel.x86_64 
+	- openssl-devel unzip
+
+# ------ Manuel olarak kurulacaklar ------ 
+	- python 2.7
+
+	- maven
+	  Kurulumu internette var kolayca bulunabilir. 
+	  PDF Versiyonu: Centos Maven Installation.pdf
+
+
+# ------ Google SDK Kurulumu ve Global Değişkenler ------
+	- Öncelik Google SDK Kurmamız gerek. Aşağıdaki adresi kullanarak yada PDF lerden kolayca kurabilirsiniz.
+	  Kurulum için internet sitesi: https://cloud.google.com/sdk/docs/
+	  Kurulum PDF versiyonu: Google Cloud SDK Installation.pdf
+
+	- Birkaç Tane environment variable set etmemiz gerek. 
+	  "/etc/profile.d" klasörüne gidip "bigtable.sh" isminde bir dosya oluşturun. Burada dosya ismi önemli değildir. Dosyanın içerisine aşağoıdaki değişkenleri yapıştırın. "source /etc/profile.d/bigtable.sh" komutunu çalıştırarak yazdığımız env var ları etkin hale gettirelim.
+          "GOOGLE_APPLICATION_CREDENTIALS" değişkeni ilk başta böyle olmayacak. Google Consoldan "IAM & Admin bölümünden Service Account başlığında girerek alıyoruz."
+	  "GOOGLE_APPLICATION_CREDENTIALS" değişkeni Google Cloud SDK yı kurduğumuzda işimize yarayacak daha sonra değiştireceğiz. 
+	  "GOOGLE_APPLICATION_CREDENTIALS" değişkenini set ettikten sonra "gcloud auth application-default login" komutunu çalıştırıp yönergeleri izliyoruz. Yönergeler tamamlandıktan sonra ekrana çıkan yazılarda "GOOGLE_APPLICATION_CREDENTIALS" değişkeninin yeni yeri yazıyor. O yolu "bigtable.sh" dosyasından değiştirip tekrardan "source" scriptini çalıştırıyoruz.
+	  #####################################################################################
+	  # export CLOUDSDK_PYTHON="python2.7" 
+	  # export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el6_8.x86_64/jre
+	  # export HBASE_HOME=/home/hbase-1.2.1/
+	  # export GOOGLE_APPLICATION_CREDENTIALS=/root/.config/gcloud/application_default_credentials.json
+	  # export HBASE_CLASSPATH=/home/hbase-1.2.1/lib/bigtable/bigtable-hbase-1.2-0.9.5.1.jar:/home/hbase-1.2.1/lib/netty-tcnative-boringssl-static-1.1.33.Fork19.jar
+	  # export CLASSPATH=/home/hbase-1.2.1/lib/bigtable/bigtable-hbase-1.2-0.9.5.1.jar:/home/hbase-1.2.1/lib/netty-tcnative-boringssl-static-1.1.33.Fork19.jar
+	  # export M2_HOME=/opt/maven
+	  # export PATH=${M2_HOME}/bin:${PATH} 
+	  #####################################################################################
+
+
+# ------ Google Hbase Shell Kurulumu ------
+	- Kurulum için internet sitesi: https://cloud.google.com/bigtable/docs/installing-hbase-shell
+	- Kurulum için PSD Dökümanı: Google Hbase Shell For Bigtable.pdf
+
+
+# ------ OpenTSDB Kurulumu ------
+	- Kurulum için internet sitesi: http://opentsdb.net/docs/build/html/user_guide/backends/bigtable.html
+	- Kurulum için PSD Dökümanı: OpenTSDB Bigtable Install and Config.pdf
+
+
+
